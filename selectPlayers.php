@@ -1,4 +1,4 @@
-<?php
+ 	<?php
 	session_start();
 ?>
 <html>
@@ -71,13 +71,13 @@
 		<table id="playersList">
 			<tr>
 				<th onclick="sorting(0)">Select</th>
-                <th onclick="numberSort()">Rank</th>
+                <th onclick="numberSort(1)">Rank</th>
                 <th onclick="sorting(2)">Player Name</th>
                 <th onclick="sorting(3)">Team</th>
                 <th onclick="sorting(4)">Position</th>
-				<th onclick="numberSort()">Age</th>
-				<th onclick="numberSort()">Fantasy Points</th>
-				<th onclick="numberSort()">Postional Rank</th>
+				<th onclick="numberSort(5)">Age</th>
+				<th onclick="numberSort(6)">Fantasy Points</th>
+				<th onclick="numberSort(7)">Postional Rank</th>
             </tr>
 <?php
 		while ($row = sqlsrv_fetch_array($search_result)) {
@@ -95,7 +95,7 @@
 		}
 ?>
 		</table>
-		<script>
+	<script>
 function searchFunction() {
 var searchInput, searchFilter, table, tr, td, i, searchValue;
 searchInput = document.getElementById("input");
@@ -154,7 +154,7 @@ s = true;
 }
 </script>
 <script>
-function numberSort() {
+function numberSort(n) {
 var tableId, rows, sw, i, x, y, shouldSwitch;
 tableId = document.getElementById("playersList");
 sw = true;
@@ -163,8 +163,8 @@ sw = false;
 rows = tableId.rows;
 for (i = 1; i < (rows.length - 1); i++) {
 shouldSwitch = false;
-x = rows[i].getElementsByTagName("TD")[1];
-y = rows[i + 1].getElementsByTagName("TD")[1];
+x = rows[i].getElementsByTagName("TD")[n];
+y = rows[i + 1].getElementsByTagName("TD")[n];
 if (Number(x.innerHTML) > Number(y.innerHTML)) {
 shouldSwitch = true;
 break;
