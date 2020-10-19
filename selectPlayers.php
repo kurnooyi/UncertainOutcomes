@@ -97,85 +97,85 @@
 ?>
 		</table>
 		<script>
-		function searchFunction() {
-		  var searchInput, searchFilter, table, tr, td, i, searchValue;
-		  searchInput = document.getElementById("input");
-		  searchFilter = searchInput.value.toUpperCase();
-		  table = document.getElementById("playersList");
-		  tr = table.getElementsByTagName("tr");
-		  for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[2];
-			if (td) {
-			  searchValue = td.textContent || td.innerText;
-			  if (searchValue.toUpperCase().indexOf(searchFilter) > -1) {
-				tr[i].style.display = "";
-			  } else {
-				tr[i].style.display = "none";
-			  }
-			}       
-		  }
-		}
-		</script>
-		<script>
+function searchFunction() {
+var searchInput, searchFilter, table, tr, td, i, searchValue;
+searchInput = document.getElementById("input");
+searchFilter = searchInput.value.toUpperCase();
+table = document.getElementById("playersList");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+td = tr[i].getElementsByTagName("td")[2];
+if (td) {
+searchValue = td.textContent || td.innerText;
+if (searchValue.toUpperCase().indexOf(searchFilter) > -1) {
+tr[i].style.display = "";
+} else {
+tr[i].style.display = "none";
+}
+}
+}
+}
+</script>
+<script>
 function sorting(n) {
-  var tableId, rows, s, i, x, y, shouldChnage, direction, count = 0;
-  tableId = document.getElementById("playersList");
-  s = true;
-  direction = "asc"; 
-  while (s) {
-    s = false;
-    rows = tableId.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
-      shouldChange = false;
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      if (direction == "desc") {
-		if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          shouldChange = true;
-          break;
-        }
-      } else if (direction == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          shouldChange= true;
-          break;
-        }
-      }
-    }
-    if (shouldChange) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      s = true;
-      count ++;      
-    } else {
-      if (count == 0 && direction == "asc") {
-        direction = "desc";
-        s = true;
-      }
-    }
-  }
+var tableId, rows, s, i, x, y, shouldChnage, direction, count = 0;
+tableId = document.getElementById("playersList");
+s = true;
+direction = "asc";
+while (s) {
+s = false;
+rows = tableId.rows;
+for (i = 1; i < (rows.length - 1); i++) {
+shouldChange = false;
+x = rows[i].getElementsByTagName("TD")[n];
+y = rows[i + 1].getElementsByTagName("TD")[n];
+if (direction == "desc") {
+if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+shouldChange = true;
+break;
+}
+} else if (direction == "asc") {
+if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+shouldChange= true;
+break;
+}
+}
+}
+if (shouldChange) {
+rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+s = true;
+count ++;
+} else {
+if (count == 0 && direction == "asc") {
+direction = "desc";
+s = true;
+}
+}
+}
 }
 </script>
 <script>
 function numberSort() {
-  var tableId, rows, sw, i, x, y, shouldSwitch;
-  tableId = document.getElementById("playersList");
-  sw = true;
-  while (sw) {
-    sw = false;
-    rows = tableId.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[1];
-      y = rows[i + 1].getElementsByTagName("TD")[1];
-      if (Number(x.innerHTML) > Number(y.innerHTML)) {
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      sw = true;
-    }
-  }
+var tableId, rows, sw, i, x, y, shouldSwitch;
+tableId = document.getElementById("playersList");
+sw = true;
+while (sw) {
+sw = false;
+rows = tableId.rows;
+for (i = 1; i < (rows.length - 1); i++) {
+shouldSwitch = false;
+x = rows[i].getElementsByTagName("TD")[1];
+y = rows[i + 1].getElementsByTagName("TD")[1];
+if (Number(x.innerHTML) > Number(y.innerHTML)) {
+shouldSwitch = true;
+break;
+}
+}
+if (shouldSwitch) {
+rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+sw = true;
+}
+}
 }
 </script>
 
