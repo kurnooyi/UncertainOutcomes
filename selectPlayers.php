@@ -59,7 +59,6 @@
 	 else {
 		$query = "SELECT * FROM players";
 		$search_result = sqlsrv_query($dbconnect, $query);
-		echo "Hi";
 	}
 
 ?>
